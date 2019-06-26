@@ -103,7 +103,7 @@
 		methods: {
 			goDetail(e) {
 				uni.navigateTo({
-					url: '/pages/template/tabbar/detail/detail?title=' + e.title
+					url: '/pages/tabBar/dashboard/detail/detail?title=' + e.title
 				});
 			},
 			close(index1, index2) {

@@ -1,16 +1,32 @@
 <template>
-	<view class="root">
-		<view class="uni-padding-wrap">
-			<view class="uni-title">这是选项卡页面跳转详情页面的演示，下面是页面跳转时传递过来的标题：</view>
-			<view class="uni-title">{{title}}</view>
-		</view>
+	<view class="example">
+		<view class="example-title">纵向排列</view>
+		<uni-steps :options="list2" :active="active" direction="column" />
 	</view>
 </template>
 <script>
+	import uniSteps from '@/components/uni-steps/uni-steps.vue'
 	export default {
+		components: {
+			uniSteps
+		},
 		data() {
 			return {
-				title: ''
+				title: '',
+					active: 1,
+				list2: [{
+					title: '买家下单',
+					desc: '2018-11-11'
+				}, {
+					title: '卖家发货',
+					desc: '2018-11-12'
+				}, {
+					title: '买家签收',
+					desc: '2018-11-13'
+				}, {
+					title: '交易完成',
+					desc: '2018-11-14'
+				}]
 			}
 		},
 		onLoad(e) {
@@ -19,4 +35,10 @@
 	}
 </script>
 <style>
+	page {
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		background-color: #62c2e7
+	}
 </style>

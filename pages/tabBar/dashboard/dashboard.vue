@@ -4,6 +4,7 @@
 			<view v-for="(tab,index) in tabBars" :key="tab.id" class="swiper-tab-list" :class="tabIndex==index ? 'active' : ''"
 			 :id="tab.id" :data-current="index" @click="tapTab">{{tab.name}}</view>
 		</scroll-view>
+				<li v-for="x in arrList">{{x.picName}}</li>
 		<swiper :current="tabIndex" class="swiper-box" :duration="300" @change="changeTab">
 			<swiper-item v-for="(tab,index1) in newsitems" :key="index1">
 				<scroll-view class="list" scroll-y @scrolltolower="loadMore(index1)">
@@ -15,6 +16,8 @@
 					</view>
 				</scroll-view>
 			</swiper-item>
+
+
 		</swiper>
 	</view>
 </template>
@@ -94,13 +97,40 @@
 				}, {
 					name: '已完成',
 					id: 'tiyu'
-				}]
+				}],
+				arrList:[]
 			}
 		},
 		onLoad() {
 			this.newsitems = this.randomfn()
+			this.toRobot()
 		},
 		methods: {
+			toRobot () {
+
+				// this.addMessage('home', info, false);
+				var apiUrl = 'http://222.73.22.8:43433/api/dashboardList?picType=';
+				uni.request({
+					url: apiUrl,
+					data: {
+						// "key": 'acfbca724ea1b5db96d2eef88ce677dc',
+						// "info": info,
+						// "userid": 'uni-test'
+					},
+					success: (res) => {
+						console.log("data", res);
+						this.arrList = res.data.data.list
+						console.log('request success:' + arrList);
+					},
+					fail: (err) => {
+						console.log('request fail', err);
+						uni.showModal({
+							content: err.errMsg,
+							showCancel: false
+						})
+					}
+				});
+			},
 			goDetail(e) {
 				uni.navigateTo({
 					url: '/pages/tabBar/dashboard/detail/detail?title=' + e.title

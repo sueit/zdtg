@@ -1,25 +1,46 @@
 <template>
-	<view class="uni-padding-wrap uni-common-pb">
-		<view class="uni-header-logo">
-			<image src="/static/componentIndex.png"></image>
+	<view>
+		<page-head title="swiper,可滑动视图"></page-head>
+		 <view class="semi-circleL"></view>
+ 		 <view class="semi-circleR"></view>
+		 <button type="primary" @click.native="swiper_index = 0">上一页{{swiper_index}}<text class="iconfont">&#xe64a;</text></button>
+		  <button type="primary" @click.native="swiper_index = 1">下一页</button>
+		<view class="uni-margin-wrap">
+			<swiper class="swiper" :current="swiper_index" v-model="swiper_index" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration" @change="asd">
+				<swiper-item>
+					<view class="swiper-item uni-bg-red">A</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="swiper-item uni-bg-green">B</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="swiper-item uni-bg-blue">C</view>
+				</swiper-item>
+			</swiper>
 		</view>
-		<view class="uni-hello-text uni-common-pb">
-			uni-app内置组件，展示样式仅供参考，文档详见<u-link :href="'https://uniapp.dcloud.io/component/'" :text="'https://uniapp.dcloud.io/component/'" :inWhiteList="true"></u-link>
-		</view>
-		<view class="uni-card" v-for="(list,index) in lists" :key="index">
-			<view class="uni-list">
-				<view class="uni-list-cell uni-collapse">
-					<view class="uni-list-cell-navigate uni-navigate-bottom" hover-class="uni-list-cell-hover" :class="list.open ? 'uni-active' : ''"
-					 @click="triggerCollapse(index)">
-						{{list.name}}
-					</view>
-					<view class="uni-list uni-collapse" :class="list.open ? 'uni-active' : ''">
-						<view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(item,key) in list.pages" :key="key" @click="goDetailPage(item)">
-							<view class="uni-list-cell-navigate uni-navigate-right"> {{item.name ? item.name : item}} </view>
-						</view>
-					</view>
-				</view>
+
+		<view class="swiper-list">
+			<view class="uni-list-cell uni-list-cell-pd">
+				<view class="uni-list-cell-db">指示点</view>
+				<switch :checked="indicatorDots" @change="changeIndicatorDots" />
 			</view>
+			<view class="uni-list-cell uni-list-cell-pd">
+				<view class="uni-list-cell-db">自动播放</view>
+				<switch :checked="autoplay" @change="changeAutoplay" />
+			</view>
+		</view>
+
+		<view class="uni-padding-wrap">
+			<view class="uni-common-mt">
+				<text>幻灯片切换时长(ms)</text>
+				<text class="info">{{duration}}</text>
+			</view>
+			<slider @change="durationChange" :value="duration" min="500" max="2000" />
+			<view class="uni-common-mt">
+				<text>自动播放间隔时长(ms)</text>
+				<text class="info">{{interval}}</text>
+			</view>
+			<slider @change="intervalChange" :value="interval" min="2000" max="10000" />
 		</view>
 	</view>
 </template>
@@ -27,141 +48,62 @@
 	export default {
 		data() {
 			return {
-				lists: [{
-						id: 'view',
-						name: '视图容器',
-						open: false,
-						pages: [
-							'view',
-							'scroll-view',
-							'swiper'
-							// #ifndef MP-TOUTIAO
-							,
-							'movable-view',
-							'cover-view'
-							// #endif
-						]
-					}, {
-						id: 'content',
-						name: '基础内容',
-						open: false,
-						pages: ['text', 'rich-text', 'progress']
-					}, {
-						id: 'form',
-						name: '表单组件',
-						open: false,
-						pages: ['button', 'checkbox', 'form', 'input', 'label', 'picker', 'picker-view', 'radio',
-							'slider',
-							'switch', 'textarea'
-						]
-					}, {
-						id: 'nav',
-						name: '导航',
-						open: false,
-						pages: ['navigator']
-					}, {
-						id: 'media',
-						name: '媒体组件',
-						open: false,
-						pages: [
-							'image',
-							// #ifndef MP-ALIPAY
-							'video',
-							// #endif
-							// #ifndef MP-ALIPAY || MP-TOUTIAO
-							'audio',
-							// #endif
-						],
-					},
-					// #ifndef MP-TOUTIAO
-					{
-						id: 'map',
-						name: '地图',
-						open: false,
-						pages: ['map']
-
-					},
-					// #endif
-					// #ifdef APP-PLUS
-					{
-						id: 'web-view',
-						name: '网页',
-						open: false,
-						pages: [{
-							name: '网络网页',
-							url: '/pages/component/web-view/web-view'
-						}, {
-							name: '本地网页',
-							url: '/pages/component/web-view-local/web-view-local'
-						}]
-					},
-					// #endif
-					// #ifndef APP-PLUS
-					{
-						id: 'web-view',
-						name: '网页',
-						open: false,
-						pages: ['web-view']
-					},
-					// #endif
-				]
+				background: ['color1', 'color2', 'color3'],
+				indicatorDots: false,
+				autoplay: false,
+				interval: 2000,
+				duration: 500,
+				swiper_index :0
 			}
-		},
-		onShareAppMessage() {
-			return {
-				title: '欢迎体验uni-app',
-				path: '/pages/tabBar/component/component'
-			}
-		},
-		onNavigationBarButtonTap(e) {
-			uni.navigateTo({
-				url: '/pages/about/about'
-			});
 		},
 		methods: {
-			triggerCollapse(e) {
-				if (!this.lists[e].pages) {
-					this.goDetailPage(this.lists[e].url);
-					return;
-				}
-				for (var i = 0; i < this.lists.length; ++i) {
-					if (e === i) {
-						this.lists[i].open = !this.lists[e].open;
-					} else {
-						this.lists[i].open = false;
-					}
-				}
+			asd(){
+
 			},
-			goDetailPage(e) {
-				if (typeof e === 'string') {
-					uni.navigateTo({
-						url: '/pages/component/' + e + '/' + e
-					})
-				} else {
-					uni.navigateTo({
-						url: e.url
-					})
-				}
+			changeIndicatorDots(e) {
+				this.indicatorDots = !this.indicatorDots
+			},
+			changeAutoplay(e) {
+				this.autoplay = !this.autoplay
+			},
+			intervalChange(e) {
+				this.interval = e.target.value
+			},
+			durationChange(e) {
+				this.duration = e.target.value
 			}
 		}
 	}
 </script>
 
 <style>
-	page {
-		height: auto;
-		min-height: 100%;
+	.uni-margin-wrap {
+		width:490upx;
+		margin:0 auto;
+	}
+	.swiper {
+		height: 700upx;
+	}
+	.swiper-item {
+		display: block;
+		height: 700upx;
+		line-height: 700upx;
+		text-align: center;
 	}
 
-	.uni-card {
-		box-shadow: none;
+	.swiper-list {
+		margin-top: 40upx;
+		margin-bottom: 0;
 	}
 
-	.uni-list:after {
-		height: 0;
+	.uni-common-mt{
+		margin-top:60upx;
+		position:relative;
 	}
 
-	.uni-list:before {
-		height: 0;
+	.info {
+		position: absolute;
+		right:20upx;
 	}
+
 </style>

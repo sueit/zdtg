@@ -15,7 +15,8 @@
                             "color": "#999999"
                         }]
                     }
-                }
+                },
+                "enablePullDownRefresh": true
             }
         },
         {

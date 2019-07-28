@@ -90,7 +90,6 @@
             }
         },
 
-
         {
             "path": "platforms/app-plus/shake/shake",
             "style": {
@@ -131,7 +130,15 @@
     ],
 
 
-    "subPackages": [],
+    "subPackages": [{
+        "root": "pages/login",
+        "pages": [{
+            "path": "login",
+            "style": {
+                "navigationStyle": "custom"
+            }
+        }]
+    }],
     "globalStyle": {
         "navigationBarTextStyle": "black",
         "navigationBarTitleText": "Hello uniapp",

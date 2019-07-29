@@ -4,9 +4,13 @@
         <image src="../../static/zaizai-login/logo.png" mode='aspectFit' class="zai-logo"></image>
         <!-- <view class="zai-title">LOGO区域</view> -->
         <view class="zai-form">
-            <input class="zai-input "  placeholder-class="" placeholder="输入手机号码" />
-            <view class="zai-input-btn">
+            <view class="zai-input-btn ">
+                <input class="zai-input " placeholder-class="" placeholder="输入手机号码" />
+                <text class="zai-icon iconfont" @click="clearSearch">&#xe641;</text>
+            </view>
+            <view class="zai-input-btn ">
                 <input class="zai-input" placeholder-class placeholder="输入验证码" />
+                <text class="zai-icon iconfont" @click="clearSearch">&#xe6b2;</text>
                 <view class="zai-checking" @click="checking" v-if="state===false">获取验证码</view>
                 <view class="zai-checking zai-time" v-if="state===true">倒计时{{ currentTime }}s</view>
             </view>
@@ -114,7 +118,7 @@ export default {
 }
 
 .zai-input {
-    background: #e2f5fc;
+    background:  rgba(255,255,255,0.3);
     margin-top: 30upx;
     border-radius: 100upx;
     padding: 20upx 40upx;
@@ -126,6 +130,7 @@ export default {
     color: #94afce;
 }
 
+
 .zai-label {
     padding: 60upx 0;
     text-align: center;
@@ -134,7 +139,7 @@ export default {
 }
 
 .zai-btn {
-    background: #ff65a3;
+    background: #26a5ff;
     color: #fff;
     border: 0;
     border-radius: 100upx;
@@ -155,11 +160,33 @@ export default {
     padding-right: 260upx;
 }
 
+.zai-icon {
+    position: absolute;
+    left: -2px;
+    top: 0;
+    color: #fff;
+    border: 0;
+    border-radius: 110upx;
+    font-size: 36upx;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 28upx;
+    padding-right: 28upx;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2.55555556;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    padding-top: 2upx;
+    padding-bottom: 2upx;
+}
+
 .zai-checking {
     position: absolute;
     right: 0;
     top: 0;
-    background: #ff65a3;
+    background: #26a5ff;
     color: #fff;
     border: 0;
     border-radius: 110upx;

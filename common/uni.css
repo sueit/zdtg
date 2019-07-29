@@ -4,41 +4,46 @@
     font-style: normal;
     src: url('https://img-cdn-qiniu.dcloud.net.cn/fonts/uni.ttf') format('truetype');
 } */
-
 @font-face {
-  font-family: 'iconfont';  /* project id 1262571 */
-  src: url('https://at.alicdn.com/t/font_1262571_5pobnezfa8o.eot');
-  src: url('https://at.alicdn.com/t/font_1262571_5pobnezfa8o.eot?#iefix') format('embedded-opentype'),
-  url('https://at.alicdn.com/t/font_1262571_5pobnezfa8o.woff2') format('woff2'),
-  url('https://at.alicdn.com/t/font_1262571_5pobnezfa8o.woff') format('woff'),
-  url('https://at.alicdn.com/t/font_1262571_5pobnezfa8o.ttf') format('truetype'),
-  url('https://at.alicdn.com/t/font_1262571_5pobnezfa8o.svg#iconfont') format('svg');
+    font-family: 'iconfont';
+    /* project id 1262571 */
+    src: url('https://at.alicdn.com/t/font_1262571_sytuh0jwxy.eot');
+    src: url('https://at.alicdn.com/t/font_1262571_sytuh0jwxy.eot?#iefix') format('embedded-opentype'),
+        url('https://at.alicdn.com/t/font_1262571_sytuh0jwxy.woff2') format('woff2'),
+        url('https://at.alicdn.com/t/font_1262571_sytuh0jwxy.woff') format('woff'),
+        url('https://at.alicdn.com/t/font_1262571_sytuh0jwxy.ttf') format('truetype'),
+        url('https://at.alicdn.com/t/font_1262571_sytuh0jwxy.svg#iconfont') format('svg');
 }
+
 .iconfont {
-			 font-family: iconfont;
-			 margin-left: 20upx;
-	 }
+    font-family: iconfont;
+    margin-left: 20upx;
+}
 
 .checkboxing {
     animation: sploosh 2s linear infinite;
 }
+
 /* .uni-icon {
     color: #fff !important;
     background: transparent;
 } */
-.semi-circleL{
-  width:50px;
-  height:100px;
-  background-color:#000;
-  border-radius:0px 50px 50px 0; /* 左上、右上、右下、左下 */
+.semi-circleL {
+    width: 50px;
+    height: 100px;
+    background-color: #000;
+    border-radius: 0px 50px 50px 0;
+    /* 左上、右上、右下、左下 */
 }
 
-.semi-circleR{
-  width:50px;
-  height:100px;
-  background-color:#000;
-  border-radius:50px 0px 0  50px; /* 左上、右上、右下、左下 */
+.semi-circleR {
+    width: 50px;
+    height: 100px;
+    background-color: #000;
+    border-radius: 50px 0px 0 50px;
+    /* 左上、右上、右下、左下 */
 }
+
 @keyframes sploosh {
     0% {
         border-radius: 15px;
@@ -89,7 +94,7 @@
 }
 
 .buttoning {
-	margin-left: 6px;
+    margin-left: 6px;
     background: #fff;
     padding: 3px 10px;
     border-radius: 10px;
@@ -98,7 +103,7 @@
 }
 
 .buttonwait {
-	margin-left: 6px;
+    margin-left: 6px;
     padding: 3px 10px;
     border: 1px solid#fff;
     border-radius: 10px;
@@ -186,7 +191,13 @@ form {
     flex-direction: row;
     align-items: center;
 }
-
+.zai-input .input-placeholder {
+    color: #fff !important;
+}
+uni-input div{
+      background: none !important;
+      padding-left: 20px;
+}
 .uni-inline-item text {
     margin-right: 20upx;
 }

@@ -28,14 +28,14 @@ const tpl = {
     data0: {
         "datetime": "40分钟前",
         "article_type": 0,
-        "title": "uni-app行业峰会频频亮相，开发者反响热烈!123",
+        "title": "uni-app行业峰",
         "source": "DCloud",
         "comment_count": 639
     },
     data1: {
         "datetime": "一天前",
         "article_type": 1,
-        "title": "DCloud完成B2轮融资，uni-app震撼发布!",
+        "title": "DCloud完成",
         "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
         "source": "DCloud",
         "comment_count": 11395
@@ -43,7 +43,7 @@ const tpl = {
     data2: {
         "datetime": "一天前",
         "article_type": 2,
-        "title": "中国技术界小奇迹：HBuilder开发者突破200万",
+        "title": "中国技术界小奇迹",
         "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/muwu.jpg?imageView2/3/w/200/h/100/q/90",
         "source": "DCloud",
         "comment_count": 11395
@@ -64,14 +64,14 @@ const tpl = {
             "height": 360
         }],
         "datetime": "5分钟前",
-        "title": "uni-app 支持使用 npm 安装第三方包，生态更趋丰富",
+        "title": "uni-app 支持使用",
         "source": "DCloud",
         "comment_count": 11
     },
     data4: {
         "datetime": "2小时前",
         "article_type": 4,
-        "title": "uni-app 支持原生小程序自定义组件，更开放、更自由",
+        "title": "uni-app 支持原生小程序",
         "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg?imageView2/3/w/200/h/100/q/90",
         "source": "DCloud",
         "comment_count": 69
@@ -107,7 +107,7 @@ export default {
     },
     onLoad() {
         this.newsitems = this.randomfn()
-        this.toRobot()
+        // this.toRobot()
     },
     onUnload() {
         this.max = 0,
@@ -128,7 +128,7 @@ export default {
 		// 	}, 300);
 		// },
     onPullDownRefresh() {
-        this.toRobot()
+        // this.toRobot()
     },
     methods: {
         toRobot() {

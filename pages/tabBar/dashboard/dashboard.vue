@@ -1,5 +1,5 @@
 <template>
-<view class="uni-tab-bar">
+<view class="uni-tab-bar" id='dashboard'>
     <scroll-view id="tab-bar" class="uni-swiper-tab" scroll-x :scroll-left="scrollLeft">
         <view v-for="(tab,index) in tabBars" :key="tab.id" class="swiper-tab-list" :class="tabIndex==index ? 'active' : ''" :id="tab.id" :data-current="index" @click="tapTab">{{tab.name}}</view>
     </scroll-view>
@@ -28,25 +28,26 @@ const tpl = {
     data0: {
         "datetime": "40分钟前",
         "article_type": 0,
-        "title": "uni-app行业峰",
-        "source": "DCloud",
-        "comment_count": 639
+        "title": "不锈钢管订购合同1",
+        "source": "订单号：000002352356",
+        "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
+        "comment_count": 0
     },
     data1: {
         "datetime": "一天前",
         "article_type": 1,
-        "title": "DCloud完成",
+        "title": "不锈钢管订购合同2",
         "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-        "source": "DCloud",
-        "comment_count": 11395
+        "source": "订单号：000002352356",
+        "comment_count": 1
     },
     data2: {
         "datetime": "一天前",
         "article_type": 2,
-        "title": "中国技术界小奇迹",
+        "title": "不锈钢管订购合同3",
         "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/muwu.jpg?imageView2/3/w/200/h/100/q/90",
-        "source": "DCloud",
-        "comment_count": 11395
+        "source": "订单号：000002352356",
+        "comment_count": 1
     },
     data3: {
         "article_type": 3,
@@ -64,17 +65,18 @@ const tpl = {
             "height": 360
         }],
         "datetime": "5分钟前",
-        "title": "uni-app 支持使用",
-        "source": "DCloud",
-        "comment_count": 11
+        "title": "不锈钢管订购合同4",
+        "source": "订单号：000002352356",
+        "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
+        "comment_count": 0
     },
     data4: {
         "datetime": "2小时前",
         "article_type": 4,
-        "title": "uni-app 支持原生小程序",
-        "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/cbd.jpg?imageView2/3/w/200/h/100/q/90",
-        "source": "DCloud",
-        "comment_count": 69
+        "title": "不锈钢管订购合同5",
+        "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
+        "source": "订单号：000002352356",
+        "comment_count": 1
     }
 };
 
@@ -89,7 +91,7 @@ export default {
             tabIndex: 0,
             newsitems: [],
             tabBars: [{
-                name: '全部',
+                name: '全部合同',
                 id: 'guanzhu'
             }, {
                 name: '未完成',

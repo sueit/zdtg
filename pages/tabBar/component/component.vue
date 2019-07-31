@@ -1,8 +1,6 @@
 <template>
 	<view>
 		<page-head title="swiper,可滑动视图"></page-head>
-		 <view class="semi-circleL"></view>
- 		 <view class="semi-circleR"></view>
 		 <button type="primary" @click.native="swiper_index = 0">上一页{{swiper_index}}<text class="iconfont">&#xe64a;</text></button>
 		  <button type="primary" @click.native="swiper_index = 1">下一页</button>
 		<view class="uni-margin-wrap">

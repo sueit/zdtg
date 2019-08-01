@@ -175,7 +175,7 @@ export default {
         },
         goDetail(e) {
             uni.navigateTo({
-                url: '/pages/tabBar/dashboard/detail/detail?title=' + e.title
+                url: '/pages/tabBar/dashboard/contractDetail/contractDetail?title=' + e.title
             });
         },
         close(index1, index2) {

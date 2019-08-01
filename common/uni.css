@@ -31,7 +31,7 @@
 }
 
 .uni-media-list {
-    padding: 27px 15px !important;
+    padding: 27px  0 25px 25px!important;
 }
 
 .uni-scroll-view {
@@ -86,17 +86,17 @@ uni-view {
     background: #70b1cd !important;
 }
 
-.uni-progress-bar {
-    border-radius: 5px !important;
+/* .uni-progress-bar {
+  border-radius:100px !important;
 }
 
 .uni-progress-inner-bar {
-    border-radius: 5px !important;
-}
+  border-radius:100px !important;
+} */
 
-.uni-progress-info {
-    color: #57bde5 !important;
-}
+/* .uni-progress-info {
+    color: #57bde5;
+} */
 
 /* .uni-icon {
     color: #fff !important;
@@ -104,7 +104,7 @@ uni-view {
 } */
 
 .rcircle_red {
-    margin: 31px 15px;
+    margin: 20px 25px;
     width: 30px;
     height: 30px;
     background-color: #e80000;
@@ -118,7 +118,7 @@ uni-view {
     justify-content: center;
 }
 .rcircle_blue {
-    margin: 31px 15px;
+    margin: 20px 25px;
     width: 30px;
     height: 30px;
     background-color: #57b9e0;
@@ -962,7 +962,8 @@ radio-group label, checkbox-group label {
 .uni-media-list-text-top {
     width: 100%;
     line-height: 36upx;
-    font-size: 30upx;
+    font-size: 35upx;
+    font-weight: 400;
 }
 
 .uni-media-list-text-bottom {

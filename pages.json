@@ -84,9 +84,15 @@
             }
         },
         {
-            "path": "pages/tabBar/dashboard/detail/detail",
+            "path": "pages/tabBar/dashboard/contractDetail/contractDetail",
             "style": {
-                "navigationBarTitleText": "view"
+                "navigationBarTitleText": "合同详情"
+            }
+        },
+        {
+            "path": "pages/tabBar/dashboard/orderDetail/orderDetail",
+            "style": {
+                "navigationBarTitleText": "订单详情"
             }
         },
 

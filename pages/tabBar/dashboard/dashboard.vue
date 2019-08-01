@@ -1,10 +1,10 @@
 <template>
 <view class="uni-tab-bar" id='dashboard'>
     <scroll-view id="tab-bar" class="uni-swiper-tab" scroll-x :scroll-left="scrollLeft">
-        <view v-for="(tab,index) in tabBars" :key="tab.id" class="swiper-tab-list" :class="tabIndex==index ? 'active' : ''" :id="tab.id" :data-current="index" @click="tapTab">{{tab.name}}</view>
+        <view v-for="(tab,index) in tabBars" :key="tab.id" class="swiper-tab-list" :class="tabIndex==index ? 'active' : ''" :id="tab.id" :data-current="index" @click="tapTab" style="padding:13px 0;">{{tab.name}}</view>
     </scroll-view>
     <!-- <li v-for="x in arrList">{{x.picName}}</li> 接口测试-->
-    <swiper :current="tabIndex" class="swiper-box" :duration="300" @change="changeTab">
+    <swiper :current="tabIndex" class="swiper-box" :duration="300" @change="changeTab" style="background: #3193ba;">
         <swiper-item v-for="(tab,index1) in newsitems" :key="index1">
             <scroll-view class="list" scroll-y @scrolltolower="loadMore(index1)">
                 <block v-for="(newsitem,index2) in tab.data" :key="index2">

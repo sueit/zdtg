@@ -22,8 +22,8 @@
 }
 
 .uni-media-list-logo {
-    height: auto !important;
-    width: 52px !important;
+    /* height: auto !important;
+    width: 52px !important; */
 }
 
 .uni-media-list-body {
@@ -35,7 +35,7 @@
 }
 
 .uni-scroll-view {
-    background: #3193ba;
+    /* background: #3193ba; */
 }
 
 .uni-list::before {
@@ -53,9 +53,8 @@
 }
 
 uni-view {
-    line-height: inherit !important;
+    /* line-height: inherit !important; */
 }
-
 .uni-list:after {
     position: absolute;
     z-index: 10;
@@ -79,8 +78,8 @@ uni-view {
 .swiper-tab-list {
     font-size: 15px;
     font-weight: bold;
-    width: 33%;
-    height: 50px;
+    width: 33.3%!important;
+    /* height: 50px; */
     display: inline-block;
     text-align: center;
     color: #3193ba !important;

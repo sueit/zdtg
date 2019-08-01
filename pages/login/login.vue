@@ -26,7 +26,7 @@ export default {
     data() {
         return {
             state: false, //是否开启倒计时
-            iconPath: 'url(../../static/zaizai-login/1px.PNG) repeat center / contain',
+            iconPath: 'url(https://aprils.oss-cn-beijing.aliyuncs.com/1px.png) repeat center / contain',
             totalTime: 60, //总时间，单位秒
             recordingTime: 0, //记录时间变量
             currentTime: 0, //显示时间变量

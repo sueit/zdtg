@@ -1,6 +1,6 @@
 <template>
 <view class="example">
-    <media-list :options="newsitem" @close="close(index1,index2)" @click="goDetail(newsitem)"></media-list>
+    <media-list :options="newsitem" @close="close(index1,index2)" ></media-list>
 
     <view class="list-cell" hover-class="uni-list-cell-hover" @click="bindClick" style="margin: 0px 25px  0px  25px;background:#fff">
         <view class="media-list" style="margin: 0px 25px 5px 25px;border-top: 1px solid#ccc;">
@@ -9,7 +9,7 @@
             </view>
         </view>
 
-        <view style="padding:10px 0">
+        <view style="padding:10px 0" @click="goDetail(newsitem)">
             <view class="media-list" style="display: flex;">
                 <view class="uni-list" style="flex: 6;">
                     <view class="uni-list-cell" hover-class="uni-list-cell-hover">
@@ -89,6 +89,14 @@ export default {
     },
     onLoad(e) {
         this.title = e.title || '';
+    },
+    methods: {
+      goDetail(e) {
+          uni.navigateTo({
+              url: '/pages/tabBar/dashboard/orderDetail/orderDetail?title=' + e.title
+          });
+      },
+
     }
 }
 </script>
@@ -97,6 +105,6 @@ page {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background-color: #62c2e7
+    background:linear-gradient(top,rgb(49, 147, 186,1) 1%,rgb(117, 216, 250) 99%);
 }
 </style>

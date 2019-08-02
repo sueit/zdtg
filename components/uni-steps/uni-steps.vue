@@ -14,15 +14,46 @@
                 <uni-icon v-else :color="activeColor" type="checkbox-filled" class="checkboxed" size="16" />
             </view>
             <view v-if="index !== options.length-1" :style="{backgroundColor:index < active ? activeColor : ''}" class="uni-steps-item-line" />
-
             <text v-if="index == active">
                 <text class="firstButton">第一框</text>
                 <text class="buttoning">道次1</text>
-								  <text class="iconfont" style="color:#fff">&#xe64a; </text>
+                <text class="iconfont" style="color:#fff">&#xe64a; </text>
                 <text class="buttonwait">道次2</text>
-								  <text class="iconfont" style="color:#fff">&#xe64a; </text>
+                <text class="iconfont" style="color:#fff">&#xe64a; </text>
                 <text class="buttonwait">道次3</text>
             </text>
+            <uni-collapse v-if="index == active">
+                <uni-collapse-item :show-animation="true" title="标题文字">
+                    <text>
+                        <text class="firstButton">第二框</text>
+                        <text class="buttoning">道次1</text>
+                        <text class="iconfont" style="color:#fff">&#xe64a; </text>
+                        <text class="buttonwait">道次2</text>
+                        <text class="iconfont" style="color:#fff">&#xe64a; </text>
+                        <text class="buttonwait">道次3</text>
+                    </text>
+                    <br>
+                    <text>
+                        <text class="firstButton">第三框</text>
+                        <text class="buttoning">道次1</text>
+                        <text class="iconfont" style="color:#fff">&#xe64a; </text>
+                        <text class="buttonwait">道次2</text>
+                        <text class="iconfont" style="color:#fff">&#xe64a; </text>
+                        <text class="buttonwait">道次3</text>
+                    </text>
+                    <br>
+                    <text>
+                        <text class="firstButton">第四框</text>
+                        <text class="buttoning">道次1</text>
+                        <text class="iconfont" style="color:#fff">&#xe64a; </text>
+                        <text class="buttonwait">道次2</text>
+                        <text class="iconfont" style="color:#fff">&#xe64a; </text>
+                        <text class="buttonwait">道次3</text>
+                    </text>
+                </uni-collapse-item>
+            </uni-collapse>
+
+
 
         </view>
     </view>
@@ -31,9 +62,13 @@
 
 <script>
 import uniIcon from '../uni-icon/uni-icon.vue'
+import uniCollapse from '@/components/uni-collapse/uni-collapse.vue'
+import uniCollapseItem from '@/components/uni-collapse-item/uni-collapse-item.vue'
 export default {
     name: 'UniSteps',
     components: {
+        uniCollapse,
+        uniCollapseItem,
         uniIcon
     },
     props: {
@@ -64,15 +99,18 @@ export default {
 
 <style>
 @charset "UTF-8";
+
 @font-face {
-  font-family: 'iconfont';  /* project id 1262571 */
-  src: url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.eot');
-  src: url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.svg#iconfont') format('svg');
+    font-family: 'iconfont';
+    /* project id 1262571 */
+    src: url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.eot');
+    src: url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.woff2') format('woff2'),
+        url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.woff') format('woff'),
+        url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_1262571_5pobnezfa8o.svg#iconfont') format('svg');
 }
+
 .uni-steps {
     width: 100%;
     box-sizing: border-box;

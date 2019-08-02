@@ -166,7 +166,7 @@ uni-view {
 }
 
 .uni-steps-item-circle-container {
-    background: #62c2e7 !important;
+    background:none !important;
 }
 
 .uni-steps-items.uni-steps-column .uni-steps-item-title-container {

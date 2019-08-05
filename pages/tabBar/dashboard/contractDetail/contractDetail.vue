@@ -25,10 +25,8 @@
                     </view>
                 </view>
                 <view style="flex: 2;">
-
                     <view v-show="newsitem.comment_count == 0" class="rcircle_blue">完</view>
                     <view v-show="newsitem.comment_count == 1" class="rcircle_red">未</view>
-
                 </view>
             </view>
             <view class="progress-box" style="padding:0px 65px 0px 25px;color: #57bde5;">

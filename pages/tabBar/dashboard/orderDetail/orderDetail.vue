@@ -1,6 +1,30 @@
 <template>
 <view class="example">
-    <media-list :options="newsitem" @close="close(index1,index2)"></media-list>
+
+    <view class="" style="display:flex">
+        <view class="" style="flex:1;display: flex;align-items: center; justify-content: center; "  @click="swiper_index = 0">
+            <text class="iconfont">&#xe606;{{swiper_index}}</text>
+        </view>
+
+        <view class="uni-margin-wrap" style="flex:4">
+            <swiper class="swiper" :current="swiper_index" v-model="swiper_index" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration" @change="asd">
+                <swiper-item>
+                    <media-list :options="newsitem" @close="close(index1,index2)"></media-list>
+                </swiper-item>
+                <swiper-item>
+                    <media-list :options="newsitem" @close="close(index1,index2)"></media-list>
+                </swiper-item>
+                <swiper-item>
+                    <media-list :options="newsitem" @close="close(index1,index2)"></media-list>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="" style="flex:1;display: flex;align-items: center; justify-content: center; "  @click="swiper_index = 1">
+                <text class="iconfont">&#xe64b;{{swiper_index}}</text>
+        </view>
+    </view>
+
+
     <uni-steps :options="list2" :active="active" direction="column" />
 </view>
 </template>
@@ -37,6 +61,12 @@ export default {
                 "image_url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
                 "comment_count": 0
             },
+            background: ['color1', 'color2', 'color3'],
+            indicatorDots: false,
+            autoplay: false,
+            interval: 2000,
+            duration: 500,
+            swiper_index: 0
         }
     },
     onLoad(e) {
@@ -49,6 +79,37 @@ page {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background:linear-gradient(top,rgb(49, 147, 186,1) 1%,rgb(117, 216, 250) 99%);
+    background: linear-gradient(top, rgb(49, 147, 186, 1) 1%, rgb(117, 216, 250) 99%);
+}
+
+.uni-margin-wrap {
+    width: 490upx;
+    margin: 0 auto;
+}
+
+.swiper {
+    height: 700upx;
+}
+
+.swiper-item {
+    display: block;
+    height: 700upx;
+    line-height: 700upx;
+    text-align: center;
+}
+
+.swiper-list {
+    margin-top: 40upx;
+    margin-bottom: 0;
+}
+
+.uni-common-mt {
+    margin-top: 60upx;
+    position: relative;
+}
+
+.info {
+    position: absolute;
+    right: 20upx;
 }
 </style>

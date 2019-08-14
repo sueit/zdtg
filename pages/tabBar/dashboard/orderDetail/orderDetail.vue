@@ -1,12 +1,13 @@
 <template>
-<view class="example">
+<view class="example listBg">
 
-    <view class="" style="display:flex">
-        <view class="" style="flex:1;display: flex;align-items: center; justify-content: center; "  @click="swiper_index = 0">
+    <view style="padding-top:20px;padding-bottom:40px;"">
+    <view class="" style=" display:flex;width: 100%;">
+        <view class="" style="flex:1;display: flex;align-items: center; justify-content: center; " @click="swiper_index = 0">
             <text class="iconfont">&#xe606;{{swiper_index}}</text>
         </view>
 
-        <view class="uni-margin-wrap" style="flex:4">
+        <view class="uni-margin-wrap" style="flex:10">
             <swiper class="swiper" :current="swiper_index" v-model="swiper_index" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration" @change="asd">
                 <swiper-item>
                     <media-list :options="newsitem" @close="close(index1,index2)"></media-list>
@@ -19,13 +20,14 @@
                 </swiper-item>
             </swiper>
         </view>
-        <view class="" style="flex:1;display: flex;align-items: center; justify-content: center; "  @click="swiper_index = 1">
-                <text class="iconfont">&#xe64b;{{swiper_index}}</text>
+        <view class="" style="flex:1;display: flex;align-items: center; justify-content: center; " @click="swiper_index = 1">
+            <text class="iconfont">&#xe64b;{{swiper_index}}</text>
         </view>
     </view>
 
 
     <uni-steps :options="list2" :active="active" direction="column" />
+</view>
 </view>
 </template>
 <script>
@@ -75,10 +77,13 @@ export default {
 }
 </script>
 <style>
-page {
+/* page {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    background: linear-gradient(top, rgb(49, 147, 186, 1) 1%, rgb(117, 216, 250) 99%);
+} */
+.listBg {
     background: linear-gradient(top, rgb(49, 147, 186, 1) 1%, rgb(117, 216, 250) 99%);
 }
 

@@ -1,6 +1,6 @@
 <template>
 <view>
-    <view class="list-cell" hover-class="uni-list-cell-hover" @click="bindClick" style="margin: 20px 25px  0px  25px;background:#fff">
+    <view class="list-cell" hover-class="uni-list-cell-hover" @click="bindClick" style="margin:0px 25px  0px  25px;background:#fff;">
         <view class="media-list" v-if="options.title">
 
             <view style="display: flex;">

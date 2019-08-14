@@ -1,24 +1,26 @@
 <template>
 <view class="uni-tab-bar" id='dashboard'>
-    <scroll-view id="tab-bar" class="uni-swiper-tab" scroll-x :scroll-left="scrollLeft">
+    <scroll-view id=" tab-bar" class="uni-swiper-tab" scroll-x :scroll-left="scrollLeft">
         <view v-for="(tab,index) in tabBars" :key="tab.id" class="swiper-tab-list" :class="tabIndex==index ? 'active' : ''" :id="tab.id" :data-current="index" @click="tapTab" style="padding:13px 0;">{{tab.name}}</view>
-    </scroll-view>
-    <!-- <li v-for="x in arrList">{{x.picName}}</li> 接口测试-->
-    <swiper :current="tabIndex" class="swiper-box" :duration="300" @change="changeTab" style="background: #3193ba;">
-        <swiper-item v-for="(tab,index1) in newsitems" :key="index1">
-            <scroll-view class="list" scroll-y @scrolltolower="loadMore(index1)">
-                <block v-for="(newsitem,index2) in tab.data" :key="index2">
-                    <media-list :options="newsitem" @close="close(index1,index2)" @click="goDetail(newsitem)"></media-list>
-                </block>
-                <view class="uni-tab-bar-loading">
-                    {{tab.loadingText}}
+        </scroll-view>
+        <!-- <li v-for="x in arrList">{{x.picName}}</li> 接口测试-->
+        <swiper :current="tabIndex" class="swiper-box swbg" :duration="300" @change="changeTab">
+            <swiper-item v-for="(tab,index1) in newsitems" :key="index1">
+                <scroll-view class="list" scroll-y @scrolltolower="loadMore(index1)">
+                    <block v-for="(newsitem,index2) in tab.data" :key="index2">
+                        <view style="padding-top:20px;padding-bottom:20px;"">
+                        <media-list :options="newsitem" @close="close(index1,index2)" @click="goDetail(newsitem)"></media-list>
                 </view>
-            </scroll-view>
-        </swiper-item>
-        <view class="uni-loadmore" v-if="showLoadMore">{{loadMoreText}}</view>
+                    </block>
+                    <view class="uni-tab-bar-loading">
+                        {{tab.loadingText}}
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <view class="uni-loadmore" v-if="showLoadMore">{{loadMoreText}}</view>
 
 
-    </swiper>
+        </swiper>
 </view>
 </template>
 <script>
@@ -117,18 +119,18 @@ export default {
             this.loadMoreText = "加载更多",
             this.showLoadMore = false;
     },
-		// onReachBottom() {
-		// 	debugger
-		// 	console.log("onReachBottom");
-		// 	if (this.max > 40) {
-		// 		this.loadMoreText = "没有更多数据了!"
-		// 		return;
-		// 	}
-		// 	this.showLoadMore = true;
-		// 	setTimeout(() => {
-		// 		this.setDate();
-		// 	}, 300);
-		// },
+    // onReachBottom() {
+    // 	debugger
+    // 	console.log("onReachBottom");
+    // 	if (this.max > 40) {
+    // 		this.loadMoreText = "没有更多数据了!"
+    // 		return;
+    // 	}
+    // 	this.showLoadMore = true;
+    // 	setTimeout(() => {
+    // 		this.setDate();
+    // 	}, 300);
+    // },
     onPullDownRefresh() {
         // this.toRobot()
     },
@@ -146,7 +148,7 @@ export default {
                 success: (res) => {
                     console.log("data", res);
                     this.arrList = res.data.data.list
-										uni.stopPullDownRefresh();
+                    uni.stopPullDownRefresh();
                     console.log('request success:' + this.arrList);
                 },
                 fail: (err) => {
@@ -158,15 +160,15 @@ export default {
                 }
             });
         },
-				// setDate() {
-				// 	let data = [];
-				// 	this.max += 10;
-				// 	for (var i = this.max - 9; i < this.max + 1; i++) {
-				// 		data.push(i)
-				// 	}
-				// 	debugger
-				// 	this.arrList = this.arrList.concat(data);
-				// },
+        // setDate() {
+        // 	let data = [];
+        // 	this.max += 10;
+        // 	for (var i = this.max - 9; i < this.max + 1; i++) {
+        // 		data.push(i)
+        // 	}
+        // 	debugger
+        // 	this.arrList = this.arrList.concat(data);
+        // },
         onPullDownRefresh() {
             console.log('refresh');
             setTimeout(function() {
@@ -282,5 +284,9 @@ export default {
     text-align: center;
     font-size: 28upx;
     color: #999;
+}
+
+.swbg {
+    background: linear-gradient(top, rgb(49, 147, 186, 1) 1%, rgb(117, 216, 250) 99%);
 }
 </style>

@@ -15,6 +15,10 @@ Vue.prototype.$backgroundAudioData = {
 	formatedPlayTime: '00:00:00'
 }
 
+import $request from "./tools/ajax.js";
+Vue.prototype.$request = $request;
+
+
 Vue.component('page-head', pageHead)
 Vue.component('page-foot', pageFoot)
 Vue.component('uLink', uLink)

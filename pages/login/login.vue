@@ -33,16 +33,27 @@ export default {
         }
     },
     onLoad() {
-
     },
     methods: {
         handleLogin() {
             // uni.redirectTo({
             //     url: 'pages/tabBar/dashboard/dashboard'
             // });
-            uni.navigateBack({
-                delta: 2
-            });
+            this.$request({
+              url: '/smsVerify',
+              data: {
+                phoneNumbers: 666,
+                smsCode: '123',
+              }
+            }, 'POST')
+              .then(res => {
+                console.log(res);
+              });
+            // uni.navigateBack({
+            //     delta: 2
+            // });
+
+
         },
         checking() {
             //把显示时间设为总时间
@@ -51,7 +62,21 @@ export default {
             this.state = true;
             //执行倒计时
             this.checkingTime();
+
+            this.$request({
+                url: '/sms',
+                data: {
+                  phoneNumbers: 666
+                }
+              }, 'GET')
+              .then(res => {
+                // this.city = res
+                console.log(res);
+                window.sessionStorage.setItem('sessionId',res.sessionId)
+              });
         },
+
+
         checkingTime() {
             let that = this;
             //判断是否开启

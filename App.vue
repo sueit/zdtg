@@ -5,9 +5,9 @@ export default {
         // uni.switchTab({
         //     url: 'pages/tabBar/component/component'
         // });
-        // uni.navigateTo({
-        //     url: 'pages/login/login'
-        // });
+        uni.navigateTo({
+            url: 'pages/login/login'
+        });
         // #ifdef APP-PLUS
         // 锁定屏幕方向
         plus.screen.lockOrientation('portrait-primary'); //锁定
